@@ -3,7 +3,7 @@
 Adv_Ecom is a open source laravel Ecomarce.
 
 ## Package Use's
--
+- Laravel `debugber`
 
 ## Installation Guidline
 - Clone the repository
