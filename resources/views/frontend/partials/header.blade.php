@@ -16,7 +16,7 @@
               @guest
               <li><a href="#" class="text-white">Login</a></li>
               <li><a href="#" class="text-white">Sign Up</a></li>
-              <li><a href="#" class="text-white">Email me</a></li>
+              <li><a href="#" class="text-white">Cart</a></li>
               @endguest
               @auth
               <li><a href="#" class="text-white">Follow on Twitter</a></li>
