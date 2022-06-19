@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\{
-    FrontendController
+    FrontendController,
+    ProductController
 };
 
 
@@ -10,7 +11,8 @@ use App\Http\Controllers\Frontend\{
 //     Route::get('/','FrontendController@index')->name('index');
 // });
 
-Route::group(['name'=>'frontend.'], function(){
+Route::group(['as'=>'frontend.'], function(){
     Route::get('/',[FrontendController::class, 'index'])->name('index');
+    Route::get('/product/details/{slug}', [ProductController::class, 'productDetails'])->name('product.details');
 });
 

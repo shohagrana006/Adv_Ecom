@@ -17,7 +17,7 @@
 
     <main>
 
-        @include('frontend.partials.hero')
+        
 
         @yield('frontend_content')
 

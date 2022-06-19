@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('frontend_content')
-
+@include('frontend.partials.hero')
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -11,7 +11,9 @@
                         <img src="{{$product->getFirstMediaUrl('products')}}" class="card-img-top" alt="{{$product->title}}">
 
                         <div class="card-body">
-                            <p class="card-text">{{$product->title}}</p>
+                            <a href="{{route('frontend.product.details', $product->slug)}}">
+                                <p class="card-text">{{$product->title}}</p>
+                            </a>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                   
