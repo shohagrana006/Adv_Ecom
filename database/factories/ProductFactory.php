@@ -22,6 +22,7 @@ class ProductFactory extends Factory
             'title'=>$this->faker->unique()->jobTitle(),
             'description'=>$this->faker->realText(),
             'price'=>rand(1000, 10000),
+            'sale_price'=>rand(900,9000),
         ];
     }
 }

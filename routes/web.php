@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\{
+    CartController,
     FrontendController,
     ProductController
 };
@@ -14,5 +15,7 @@ use App\Http\Controllers\Frontend\{
 Route::group(['as'=>'frontend.'], function(){
     Route::get('/',[FrontendController::class, 'index'])->name('index');
     Route::get('/product/details/{slug}', [ProductController::class, 'productDetails'])->name('product.details');
+    Route::get('cart/show', [CartController::class, 'cartShow'])->name('cart.show');
+    Route::post('cart/add',[CartController::class, 'cartAdd'])->name('cart.add');
 });
 

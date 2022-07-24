@@ -24,7 +24,13 @@
                             <p class="m-0 p-0">  {{$product->category->name}}</p>
                         </div>
                         <div class="col-lg-12">
-                            <p class="m-0 p-0 price-pro">$30</p>
+                            <p class="m-0 p-0 price-pro">
+                                @if($product->sale_price != null && $product->sale_price > 0)
+                                    BDT  <del> {{$product->price}} </del> <span class="badge bg-primary">New</span> {{$product->sale_price}}
+                                @else
+                                    BDT {{$product->price}} 
+                                @endif
+                            </p>
                             <hr class="p-0 m-0">
                         </div>
                         <div class="col-lg-12 pt-2">
@@ -44,7 +50,11 @@
                         <div class="col-lg-12 mt-3">
                             <div class="row">
                                 <div class="col-lg-6 pb-2">
-                                    <a href="#" class="btn btn-danger w-100">Add To Cart</a>
+                                    <form action="{{route('frontend.cart.add')}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{$product->id}}">
+                                        <button type="submit" class="btn btn-danger w-100">Add To Cart</button>
+                                    </form>
                                 </div>
                                 <div class="col-lg-6">
                                     <a href="#" class="btn btn-success w-100">Shop Now</a>

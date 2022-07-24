@@ -8,8 +8,9 @@
             @foreach($products as $product)
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img src="{{$product->getFirstMediaUrl('products')}}" class="card-img-top" alt="{{$product->title}}">
-
+                        <a href="{{route('frontend.product.details', $product->slug)}}">
+                            <img src="{{$product->getFirstMediaUrl('products')}}" class="card-img-top" alt="{{$product->title}}">
+                        </a>
                         <div class="card-body">
                             <a href="{{route('frontend.product.details', $product->slug)}}">
                                 <p class="card-text">{{$product->title}}</p>
@@ -19,7 +20,13 @@
                                   
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>
                                 </div>
-                                <strong class="text-muted">BDT  {{$product->price}}</strong>
+                                <strong class="text-muted">
+                                    @if($product->sale_price != null && $product->sale_price > 0)
+                                    BDT  <del> {{$product->price}} </del> <span class="badge bg-primary">New</span> {{$product->sale_price}}
+                                    @else
+                                    BDT {{$product->price}} 
+                                    @endif
+                                </strong>
                             </div>
                         </div>
                     </div>

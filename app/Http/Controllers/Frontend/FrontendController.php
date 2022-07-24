@@ -10,7 +10,7 @@ class FrontendController extends Controller
 {
     public function index(){
         $data = [];
-        $data['products'] = Product::select(['id','title','slug','price'])
+        $data['products'] = Product::select(['id','title','slug','price','sale_price'])
                                 ->where('active',1)
                                 ->paginate(9);
         return view('frontend.layout.home', $data);
