@@ -14,8 +14,8 @@
             <h4 class="text-white">Contact</h4>
             <ul class="list-unstyled">
               @guest
-              <li><a href="#" class="text-white">Login</a></li>
-              <li><a href="#" class="text-white">Sign Up</a></li>
+              <li><a href="{{route('frontend.login')}}" class="text-white">Login</a></li>
+              <li><a href="{{route('frontend.register')}}" class="text-white">Sign Up</a></li>
               <li><a href="{{route('frontend.cart.show')}}" class="text-white">Cart</a></li>
               @endguest
               @auth

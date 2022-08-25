@@ -59,12 +59,21 @@
                       </tr>
                     </tfoot>                                                    
                   </table>
-                  <div>
-                    <form action="{{route('frontend.cart.clear')}}" method="post">
-                      @csrf                     
-                      <button type="submit" class="btn btn-sm btn-danger">Clear Cart</button>
-                    </form>
+                 <div class="row">
+                  <div class="col-md-6">
+                    <div class="d-inline">
+                      <form action="{{route('frontend.cart.clear')}}" method="post">
+                        @csrf                     
+                        <button type="submit" class="btn btn-sm btn-danger">Clear Cart</button>
+                      </form>        
+                    </div>             
                   </div>
+                  <div class="col-md-6">
+                    <div class="checkout text-end">
+                      <a href="{{route('frontend.checkout')}}" class="btn btn-success btn-md">Checkout</a>
+                    </div>
+                  </div>
+                 </div>
                   @endif                           
             </div>
         </div>

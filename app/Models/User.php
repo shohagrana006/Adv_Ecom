@@ -19,7 +19,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $gaurded = ['remember_token'];
-
     /**
      * The attributes that should be hidden for serialization.
      *

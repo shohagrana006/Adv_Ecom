@@ -39,7 +39,7 @@
             @endforeach
 
         </div>
-        {{$products->onEachSide(2)->links()}}
+        {{-- {{$products->onEachSide(2)->links()}} --}}
     </div>
 </div>
 @endsection

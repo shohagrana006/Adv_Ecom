@@ -8,6 +8,7 @@
     <title>{{ config('app.name') }}</title>
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    @stack('front_style')
     <link rel="stylesheet" href="{{ mix('css/style.css') }}">
 </head>
 
@@ -26,6 +27,7 @@
     @include('frontend.partials.footer')
 
     <script src="{{ mix('js/all.js') }}"></script>
+    @stack('front_script')
 </body>
 
 </html>
