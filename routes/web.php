@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Backend\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\{
     CartController,
@@ -30,13 +31,19 @@ Route::group(['as'=>'frontend.'], function(){
 
     Route::get('register', [AuthController::class,'registerForm'])->name('register');
     Route::post('register', [AuthController::class,'register']);
+    Route::get('logout',[AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
 
 
     Route::group(['middleware'=>'auth'],function(){
 
         Route::get('checkout',[CartController::class, 'checkout'])->name('checkout');
-
     });
    
+});
+
+Route::group(['middleware'=>'auth','prefix'=>'dashboard','as'=>'home.'],function(){
+    Route::get('/users',[HomeController::class, 'userList'])->name('user');
+
 });
 

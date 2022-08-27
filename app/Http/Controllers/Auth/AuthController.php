@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
+
     function loginForm()
     {
         return view('auth.login');
@@ -21,7 +22,30 @@ class AuthController extends Controller
 
     function login()
     {
-        
+        $validator = Validator::make(request()->all(),[        
+            'email' => 'required',        
+            'password' => 'required|min:6',
+        ]);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();           
+        }
+
+        try{
+            $credentials = request()->only(['email','password']);
+            
+            if(!auth()->attempt($credentials)){
+                $this->successMessage('Your credentials dose not match');
+                return redirect()->back();
+            }
+
+            $this->successMessage('Successfully Login !! Welcome to dashboard');
+            return redirect()->route('home.user');
+        } 
+        catch(Exception $e){
+            $this->errorMessage($e->getMessage());
+            return redirect()->back();
+        }
     }
 
     function registerForm()
@@ -53,6 +77,8 @@ class AuthController extends Controller
                 'created_at' => Carbon::now(),
             ]);
 
+
+
             $this->successMessage('User Rsgistration Successfully');
             return redirect()->route('frontend.login');
         } 
@@ -64,6 +90,7 @@ class AuthController extends Controller
 
     function logout()
     {
-        
+        auth()->logout();
+        return redirect()->route('frontend.login');
     }
 }

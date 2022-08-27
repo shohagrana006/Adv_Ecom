@@ -16,12 +16,14 @@
               @guest
               <li><a href="{{route('frontend.login')}}" class="text-white">Login</a></li>
               <li><a href="{{route('frontend.register')}}" class="text-white">Sign Up</a></li>
-              <li><a href="{{route('frontend.cart.show')}}" class="text-white">Cart</a></li>
+             
               @endguest
               @auth
               <li><a href="#" class="text-white">Follow on Twitter</a></li>
               <li><a href="#" class="text-white">Like on Facebook</a></li>             
+              <li><a href="{{route('frontend.logout')}}" class="text-white">Logout</a></li>             
               @endauth
+              <li><a href="{{route('frontend.cart.show')}}" class="text-white">Cart</a></li>
               
             </ul>
           </div>

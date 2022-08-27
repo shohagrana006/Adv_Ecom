@@ -14,11 +14,11 @@
                     @csrf           
                     <div class="form-group mt-3">
                         <label>Email address</label>
-                        <input type="email" class="form-control">
+                        <input type="email" name="email" value="{{old('email')}}" class="form-control">
                     </div>
                     <div class="form-group mt-3">
                         <label>Password</label>
-                        <input type="password" class="form-control">
+                        <input type="password" name="password" value="{{old('password')}}" class="form-control">
                     </div>
                    <div class="form-group mt-3">
                         <button class="btn btn-primary w-100" type="submit">Sign in</button>
